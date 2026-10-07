@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><head>
+  <!-- 1. Enlazar el archivo de configuración (Manifiesto) -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- 2. Registrar el Service Worker mediante JavaScript básico -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker registrado con éxito', reg))
+          .catch(err => console.error('Error al registrar el Service Worker', err));
+      });
+    }
+  </script>
+  
+  <!-- 3. Compatibilidad extra para iPhones / iOS (Opcional pero muy recomendado) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>React Artifact</title>
